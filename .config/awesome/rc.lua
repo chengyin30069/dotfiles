@@ -61,14 +61,14 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    --awful.layout.suit.floating,
-    -- awful.layout.suit.tile,
-    -- awful.layout.suit.tile.left,
+    -- awful.layout.suit.floating,
+    awful.layout.suit.tile,
+    awful.layout.suit.tile.left,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
     -- awful.layout.suit.fair,
     -- awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
+    -- awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
     -- awful.layout.suit.max,
     -- awful.layout.suit.max.fullscreen,
@@ -161,7 +161,7 @@ globalkeys = gears.table.join(
               {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
-	awful.key({ modkey, "Shift"   }, "s", function () awful.util.spawn ("spectacle")end,
+	awful.key({ modkey, "Shift"   }, "s", function () awful.util.spawn ("/home/linus/.config/rofi/applets/bin/screenshot.sh")end,
 			  {description = "take a screen shot", group = "launcher"}),
 
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -174,14 +174,8 @@ globalkeys = gears.table.join(
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
-    awful.key({ modkey,           }, "Tab",
-        function ()
-            awful.client.focus.history.previous()
-            if client.focus then
-                client.focus:raise()
-            end
-        end,
-        {description = "go back", group = "client"}),
+    awful.key({ modkey,           }, "Tab", function () awful.layout.inc( 1)                end,
+              {description = "select next", group = "layout"}),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
@@ -221,11 +215,11 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey },            "space",     function () awful.util.spawn("rofi -show drun")end,
+    awful.key({ modkey },            "space",     function () awful.util.spawn("rofi -show drun -theme ~/.config/rofi/launchers/type-3/style-3.rasi")end,
               {description = "rofi app launch", group = "launcher"}),
-    awful.key({ "Mod1" },            "Tab",     function () awful.util.spawn("rofi -show window")end,
+    awful.key({ "Mod1" },            "Tab",     function () awful.util.spawn("rofi -show window -theme ~/.config/rofi/launchers/type-4/style-4.rasi")end,
               {description = "rofi window switcher", group = "launcher"}),
-    awful.key({ modkey },            "x",     function () awful.util.spawn("powermenu")end,
+    awful.key({ modkey },            "x",     function () awful.util.spawn("/home/linus/.config/rofi/powermenu/type-3/powermenu.sh")end,
               {description = "launch powermenu", group = "launcher"}),
     
 	-- Menubar
@@ -459,10 +453,12 @@ end)
 -- end)
 
 --Autostart apps
+
+awful.spawn.with_shell("xrandr --output HDMI-1 --mode 1920x1080 --rate 144")
 awful.spawn.with_shell("nitrogen --set-zoom-fill --random ~/wallpaper")
 awful.spawn.with_shell("fcitx5")
-awful.spawn.with_shell("picom")
-awful.spawn.with_shell("/home/linusw/.config/polybar/awesome.sh")
+awful.spawn.with_shell("compfy")
+awful.spawn.with_shell("/home/linus/.config/polybar/awesome.sh")
 
 --Gaps
 beautiful.useless_gap=4
