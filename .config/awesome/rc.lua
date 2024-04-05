@@ -455,7 +455,7 @@ end)
 --Autostart apps
 
 awful.spawn.with_shell("xrandr --output HDMI-1 --mode 1920x1080 --rate 144")
-awful.spawn.with_shell("nitrogen --set-zoom-fill --random ~/wallpaper")
+awful.spawn.with_shell("nitrogen --set-zoom-fill --random ~/圖片/wallpaper")
 awful.spawn.with_shell("fcitx5")
 awful.spawn.with_shell("compfy")
 awful.spawn.with_shell("/home/linus/.config/polybar/awesome.sh")
