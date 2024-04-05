@@ -17,7 +17,7 @@ cyan    = '#46d9ff'
 white   = '#bbc2cf'
 
 [font]
-size = 16
+size = 18
 
 [font.bold]
 family = "Hack Nerd Font Mono"
