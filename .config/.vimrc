@@ -8,6 +8,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
 
+Plugin 'bfrg/vim-cpp-modern'
+
 Plugin 'tpope/vim-commentary'
 
 Plugin 'mhinz/vim-startify'
@@ -22,6 +24,8 @@ Plugin 'tribela/vim-transparent'
 
 Plugin 'vimsence/vimsence'
 
+Plugin 'pangloss/vim-javascript'
+
 Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
@@ -29,8 +33,6 @@ call vundle#end()
 filetype plugin indent on
 
 let g:airline#extensions#tabline#enabled = 1
-
-let g:airline_theme=''
 
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
