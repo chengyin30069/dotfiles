@@ -3,8 +3,8 @@ my linux dotfiles
 # dependency
 - alacritty
 - awesome
+- compfy
 - htop
-- picom
 - polybar
 - ranger
 - rofi
