@@ -139,3 +139,6 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
   exec tmux
 fi
 eval "$(starship init bash)"
+clear
+echo
+fastfetch
